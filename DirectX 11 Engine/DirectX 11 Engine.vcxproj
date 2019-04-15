@@ -72,38 +72,50 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)DirectX 11 Engine\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)DirectX 11 Engine\Libs\x86\Debug;$(SolutionDir)DirectX 11 Engine\Libs\Any;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)DirectX 11 Engine\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)DirectX 11 Engine\Libs\x64\Debug;$(SolutionDir)DirectX 11 Engine\Libs\Any;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)DirectX 11 Engine\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)DirectX 11 Engine\Libs\Any;$(SolutionDir)DirectX 11 Engine\Libs\x86\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)DirectX 11 Engine\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)DirectX 11 Engine\Libs\x64\Release;$(SolutionDir)DirectX 11 Engine\Libs\Any;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>D3DCompiler.lib;DXGI.lib;DirectXTK.lib;d3d11.lib;assimp-vc140-mt.lib;pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>D3DCompiler.lib;DXGI.lib;DirectXTK.lib;d3d11.lib;assimp-vc140-mt.lib;pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,14 +124,16 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>D3DCompiler.lib;DXGI.lib;DirectXTK.lib;d3d11.lib;assimp-vc140-mt.lib;pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,17 +142,154 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>D3DCompiler.lib;DXGI.lib;DirectXTK.lib;d3d11.lib;assimp-vc140-mt.lib;pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Graphics\AdapterReader.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="ErrorLogger.cpp" />
+    <ClCompile Include="Graphics\Camera2D.cpp" />
+    <ClCompile Include="Graphics\Camera3D.cpp" />
+    <ClCompile Include="Graphics\Color.cpp" />
+    <ClCompile Include="Graphics\GameObject.cpp" />
+    <ClCompile Include="Graphics\GameObject2D.cpp" />
+    <ClCompile Include="Graphics\GameObject3D.cpp" />
+    <ClCompile Include="Graphics\Graphics.cpp" />
+    <ClCompile Include="Graphics\ImGui\imgui.cpp" />
+    <ClCompile Include="Graphics\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Graphics\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Graphics\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Graphics\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Graphics\Light.cpp" />
+    <ClCompile Include="Graphics\Mesh.cpp" />
+    <ClCompile Include="Graphics\Model.cpp" />
+    <ClCompile Include="Graphics\RenderableGameObject.cpp" />
+    <ClCompile Include="Graphics\Shaders.cpp" />
+    <ClCompile Include="Graphics\Sprite.cpp" />
+    <ClCompile Include="Graphics\Texture.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Keyboard\Keyboard.cpp" />
+    <ClCompile Include="Keyboard\KeyboardEvent.cpp" />
+    <ClCompile Include="Mouse\Mouse.cpp" />
+    <ClCompile Include="Mouse\MouseEvent.cpp" />
+    <ClCompile Include="RenderWindow.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="StringHelper.cpp" />
+    <ClCompile Include="WindowContainer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graphics\Camera2D.h" />
+    <ClInclude Include="Graphics\GameObject2D.h" />
+    <ClInclude Include="Graphics\GameObject3D.h" />
+    <ClInclude Include="Graphics\Color.h" />
+    <ClInclude Include="COMException.h" />
+    <ClInclude Include="Graphics\GameObject.h" />
+    <ClInclude Include="Graphics\Camera3D.h" />
+    <ClInclude Include="Graphics\ConstantBuffer.h" />
+    <ClInclude Include="Graphics\ConstantBufferTypes.h" />
+    <ClInclude Include="Graphics\AdapterReader.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="ErrorLogger.h" />
+    <ClInclude Include="Graphics\Graphics.h" />
+    <ClInclude Include="Graphics\ImGui\imconfig.h" />
+    <ClInclude Include="Graphics\ImGui\imgui.h" />
+    <ClInclude Include="Graphics\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Graphics\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Graphics\ImGui\imgui_internal.h" />
+    <ClInclude Include="Graphics\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Graphics\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Graphics\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Graphics\Model.h" />
+    <ClInclude Include="Graphics\Mesh.h" />
+    <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Graphics\RenderableGameObject.h" />
+    <ClInclude Include="Graphics\Light.h" />
+    <ClInclude Include="Graphics\Sprite.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Keyboard\Keyboard.h" />
+    <ClInclude Include="Keyboard\KeyboardEvent.h" />
+    <ClInclude Include="Mouse\Mouse.h" />
+    <ClInclude Include="Mouse\MouseEvent.h" />
+    <ClInclude Include="RenderWindow.h" />
+    <ClInclude Include="Graphics\Shaders.h" />
+    <ClInclude Include="StringHelper.h" />
+    <ClInclude Include="Graphics\Vertex.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
+    <ClInclude Include="WindowContainer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Graphics\shaders\Vertexshaders\vertexshader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DisableOptimizations>
+    </FxCompile>
+    <FxCompile Include="Graphics\shaders\pixelshaders\pixelshader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Graphics\shaders\pixelshaders\pixelshader_nolight.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Graphics\shaders\pixelshaders\pixelshader_2d.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Graphics\shaders\pixelshaders\pixelshader_2d_discard.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Graphics\shaders\Vertexshaders\vertexshader_2d.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
